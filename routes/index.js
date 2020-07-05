@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/api/google', function(req, res, next) {
+  res.render('google', { title: 'Google' });
+});
+
 module.exports = router;
