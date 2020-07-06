@@ -1,7 +1,7 @@
 
 var redirect = ((req,res)=>{
 
-    return res.redirect('/api/google')
+    return res.redirect('/google')
 
 });
 
