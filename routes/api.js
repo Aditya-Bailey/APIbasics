@@ -3,6 +3,8 @@ var router = express.Router();
 var userController = require('../controller/user/userController');
 const read = require('../controller/test/read')
 const redirect = require('../controller/test/redirect')
+const wooCommerce = require('../controller/wooCommerce/wooCommerceController')
+
 
 router.post('/register', userController.register)
 router.post('/signin', userController.signin)
@@ -10,6 +12,8 @@ router.post('/signin', userController.signin)
 router.get('/readFile', read.read)
 
 router.get('/g', redirect.redirect)
+
+router.get('/wooCommerce', wooCommerce.wooCommerce)
 
 
 
