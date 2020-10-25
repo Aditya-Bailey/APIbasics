@@ -5,10 +5,11 @@ const read = require('../controller/test/read')
 const redirect = require('../controller/test/redirect')
 const wooCommerce = require('../controller/wooCommerce/wooCommerceController')
 
+const auth =  require('../middlewares/auth')    // middleware imported
 
 router.post('/register', userController.register)
 router.post('/signin', userController.signin)
-
+router.put('/update', auth, userController.update)          // middleware added here
 router.get('/readFile', read.read)
 
 router.get('/g', redirect.redirect)

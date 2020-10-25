@@ -1,5 +1,6 @@
 const User =  require('../../model/userModel')
-
+const jwt = require('jsonwebtoken')
+const JWTSECRET = 'thisIsSecretKey-CouldBeAnything';
 
 var register = ((req,res,next)=>{
 
@@ -35,10 +36,14 @@ var signin=((req,res,next)=>{
             if(doc){
            // console.log("user",doc);
             if(doc.password==log.password){
+                let token = jwt.sign({ userId: doc._id },JWTSECRET);
+                console.log('>>>>>', token);
+                
                 return res.json({
                     status	: 	true,
                     message	: 	'Login Successful',
-                }); 
+                    token
+                });
             }else{
                 res.send({status:false,message:'email/password incorrect'});
             }
@@ -50,4 +55,9 @@ var signin=((req,res,next)=>{
 
 });
 
-module.exports={register, signin};
+var update = ((req, res)=>{
+    console.log('UPDATE PROFILE HERE')
+    return res.json('UPDATE PROFILE HERe')
+})
+
+module.exports={register, signin, update};

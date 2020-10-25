@@ -8,8 +8,8 @@ var wooCommerce = ((req,res)=>{
       url: 'http://wpdev.crisptag.com',
       consumerKey: 'ck_d77d9660fc1ea668c9113cba31b708ba363871e3',
       consumerSecret: 'cs_1db98b40e9e17ff5ea41e6f59f619f17dacfc1bb',
-      wpAPI: true,
-      version: 'wc/v1'
+    //   wpAPI: true,
+      version: 'v3'
     });
     console.log('=====', WooCommerce)
 
@@ -37,13 +37,14 @@ var wooCommerce = ((req,res)=>{
         ]
       };
       
-    //    WooCommerce.post("products", data, function(data){
-    //       console.log("=======data======", data)
-    //   })
-try {
-    WooCommerce.get("products", function(data){
-      console.log("=======data======", data)
-  })
+      try {
+             WooCommerce.post("products", data, function(data){
+                console.log("=======data======", data)
+                return data
+            })
+//           WooCommerce.get("products", function(data){
+//       console.log("=======data======", data)
+//   })
     
 } catch (error) {
     console.log('errorrrr', error)
